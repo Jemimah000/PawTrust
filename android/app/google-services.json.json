@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "217457041529",
+    "project_id": "pawtrust1234",
+    "storage_bucket": "pawtrust1234.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:217457041529:android:ed1110614182616172b4a8",
+        "android_client_info": {
+          "package_name": "com.example.pawtrust"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDUBoKwfebXL0CTk-U9FZHyk3XKBbm5cwk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
