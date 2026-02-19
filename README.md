@@ -1,77 +1,115 @@
-# 🐾 PawTrust – Responsive Mobile UI & Firebase Integration (Sprint #2)
+# 🐾 PawTrust – Widget Tree & Reactive UI Model (Sprint #2)
 
 ## 📌 Project Overview
 
-PawTrust is a cross-platform mobile application built using Flutter & Dart.
+This Sprint #2 submission focuses on understanding Flutter’s **Widget Tree** and its **Reactive UI Model**.
 
-In this Sprint #2 deliverable, the focus is on responsive UI and Firebase integration. Users can now sign up, log in, and interact with cloud data seamlessly.
+In this implementation, we built a simple interactive demo inside PawTrust to demonstrate:
 
-This implementation demonstrates:
+- 🌳 How Flutter UI is structured using a widget tree
+- 🔄 How Flutter automatically rebuilds UI when state changes
+- ⚡ How `setState()` triggers efficient UI updates
 
-- 📱 Responsive layouts for mobile and tablet devices
-- 🔄 Portrait and landscape support
-- 🔐 Firebase Authentication for email/password login
-- ☁️ Cloud Firestore for real-time data storage and retrieval
-
-The goal is to provide a consistent, user-friendly, and cloud-connected experience across all devices.
+The goal of this sprint is to understand how Flutter builds, manages, and updates dynamic user interfaces.
 
 ---
 
 ## 🎯 Objective of This Sprint
 
-To design and implement a responsive Flutter UI and integrate Firebase services:
-
-- Build responsive layouts for different screen sizes
-- Enable Firebase Authentication for signup, login, and logout
-- Enable Cloud Firestore CRUD operations for user-specific data
-- Display Firestore data dynamically in the app
+- Understand Flutter's widget hierarchy structure
+- Visualize how widgets are nested inside each other
+- Demonstrate Flutter’s reactive programming model
+- Show automatic UI updates using `setState()`
+- Document widget tree structure clearly
 
 ---
 
 ## 🚀 Features Implemented
 
-### UI & Responsiveness
-- ✅ Responsive Home Screen
-- ✅ Dynamic layout switching (Phone vs Tablet)
-- ✅ Adaptive padding and text sizing
-- ✅ Grid layout for larger screens
-- ✅ List layout for smaller screens
-- ✅ Landscape & Portrait support
-- ✅ Clean modular folder structure
+### 🌳 Widget Tree Demonstration
+- ✅ Root `MaterialApp`
+- ✅ `Scaffold` structure
+- ✅ `AppBar` with title
+- ✅ Centered layout using `Center`
+- ✅ Vertical arrangement using `Column`
+- ✅ Interactive widgets inside the column
 
-### Firebase Integration
-- ✅ Email & password signup
-- ✅ Login for existing users
-- ✅ Logout functionality
-- ✅ CRUD operations in Cloud Firestore
-- ✅ Real-time updates in app and Firebase Console
-- ✅ Error handling for authentication
+### 🔄 Reactive UI Demonstration
+- ✅ Counter that updates dynamically
+- ✅ Theme switcher (Light / Dark Mode)
+- ✅ UI rebuilds automatically using `setState()`
+- ✅ Only affected widgets update (efficient rendering)
 
 ---
 
-## 🧠 Responsiveness Logic
+## 🌳 Widget Tree Structure
 
-The layout adjusts automatically based on the device’s screen size. For example:
+Below is the widget hierarchy used in this demo:
 
-- Single-column layout for phones
-- Two-column or grid layout for tablets
-- Padding, spacing, and text size scale dynamically
-- Portrait and landscape modes are fully supported
+MaterialApp
+┗ Scaffold
+┣ AppBar
+┗ Body
+┗ Center
+┗ Column
+┣ Text (Count Display)
+┣ SizedBox
+┣ ElevatedButton (Increment)
+┣ SizedBox
+┣ Switch (Theme Toggle)
+┗ Text (Theme Label)
+
+
+This structure shows how every UI element in Flutter is a widget and how they are nested hierarchically.
 
 ---
 
-## 🔑 Firebase Integration Logic
+## 🔄 State Management Logic
 
-- Signup allows new users to create accounts with email and password  
-- Login authenticates existing users  
-- Logout ends the user session securely  
-- Firestore stores user-specific data and updates in real time  
-- Dynamic data is displayed in the app and synced with the Firebase Console instantly
+Two state variables were used:
+
+- `int count` → stores the counter value
+- `bool isDark` → controls theme mode
+
+When the button is pressed:
+- `setState()` increases the counter
+- Flutter rebuilds the `Text` widget displaying the count
+
+When the switch is toggled:
+- `setState()` changes the theme
+- Flutter rebuilds the app with dark or light mode
+
+Flutter does NOT redraw the entire app manually.  
+It efficiently rebuilds only the widgets affected by the state change.
 
 ---
 
-## 📝 Reflection
+## 📸 Screenshots
 
-- Firebase simplifies backend management by providing authentication, database, and real-time sync out of the box  
-- Learned how to connect Flutter with cloud services, manage user sessions, and perform CRUD operations  
-- Prepared the app foundation for future features like analytics, notifications, and cloud storage
+### Initial State
+- Count = 0
+- Light Mode enabled
+![alt text](image.png)
+
+### After Interaction
+- Count incremented
+- Dark Mode enabled
+
+![alt text](image-1.png)
+
+---
+
+## 🧠 Reflection
+
+The widget tree helps Flutter manage complex UIs by organizing every element in a structured hierarchy. Each widget acts like a building block, and parent widgets manage their children.
+
+Flutter’s reactive model is more efficient than manually updating views because:
+
+- We only update the state.
+- Flutter automatically rebuilds affected widgets.
+- No manual UI refresh logic is required.
+- This makes development faster, cleaner, and less error-prone.
+
+Through this sprint, I understood how Flutter internally manages UI updates and how powerful the `setState()` method is for dynamic interfaces.
+
+---
