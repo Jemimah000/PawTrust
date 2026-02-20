@@ -1,115 +1,185 @@
-# 🐾 PawTrust – Widget Tree & Reactive UI Model (Sprint #2)
+# 🐾 PawTrust – Stateless vs Stateful Widgets Demo (Sprint #2)
 
 ## 📌 Project Overview
 
-This Sprint #2 submission focuses on understanding Flutter’s **Widget Tree** and its **Reactive UI Model**.
+This Sprint #2 assignment explores the two fundamental building blocks of Flutter applications:
 
-In this implementation, we built a simple interactive demo inside PawTrust to demonstrate:
+- Stateless Widgets  
+- Stateful Widgets  
 
-- 🌳 How Flutter UI is structured using a widget tree
-- 🔄 How Flutter automatically rebuilds UI when state changes
-- ⚡ How `setState()` triggers efficient UI updates
+In this demo, we implemented both widget types inside the PawTrust app to clearly demonstrate how they behave differently and how they work together to build dynamic user interfaces.
 
-The goal of this sprint is to understand how Flutter builds, manages, and updates dynamic user interfaces.
-
----
-
-## 🎯 Objective of This Sprint
-
-- Understand Flutter's widget hierarchy structure
-- Visualize how widgets are nested inside each other
-- Demonstrate Flutter’s reactive programming model
-- Show automatic UI updates using `setState()`
-- Document widget tree structure clearly
+The app visually shows how static UI components remain unchanged while interactive components rebuild when state changes.
 
 ---
 
-## 🚀 Features Implemented
+## 🎯 Demo Concept
 
-### 🌳 Widget Tree Demonstration
-- ✅ Root `MaterialApp`
-- ✅ `Scaffold` structure
-- ✅ `AppBar` with title
-- ✅ Centered layout using `Center`
-- ✅ Vertical arrangement using `Column`
-- ✅ Interactive widgets inside the column
+The demo screen contains:
 
-### 🔄 Reactive UI Demonstration
-- ✅ Counter that updates dynamically
-- ✅ Theme switcher (Light / Dark Mode)
-- ✅ UI rebuilds automatically using `setState()`
-- ✅ Only affected widgets update (efficient rendering)
+- A **Stateless Widget** used as a static header/banner.
+- A **Stateful Widget** used for an interactive section with:
+  - Counter functionality
+  - Theme toggle (Light/Dark Mode)
+
+This layout clearly separates static UI from dynamic UI logic.
 
 ---
 
-## 🌳 Widget Tree Structure
+## 🧾 Understanding Stateless Widgets
 
-Below is the widget hierarchy used in this demo:
+A Stateless Widget:
 
-MaterialApp
-┗ Scaffold
-┣ AppBar
-┗ Body
-┗ Center
-┗ Column
-┣ Text (Count Display)
-┣ SizedBox
-┣ ElevatedButton (Increment)
-┣ SizedBox
-┣ Switch (Theme Toggle)
-┗ Text (Theme Label)
+- Does not maintain internal state.
+- Displays static content.
+- Rebuilds only if its parent widget rebuilds.
+- Is predictable and lightweight.
 
+### 🔹 In This Project
 
-This structure shows how every UI element in Flutter is a widget and how they are nested hierarchically.
+The header section of the app is implemented using a Stateless Widget.  
+It displays a static title such as:
+
+> "Interactive Demo App – PawTrust"
+
+This content does not change during runtime.
+
+### ✅ When to Prefer Stateless Widgets
+
+- For headers and titles  
+- For labels and icons  
+- For static layouts  
+- When UI does not depend on changing data  
+
+Stateless widgets improve performance and keep the UI predictable.
 
 ---
 
-## 🔄 State Management Logic
+## 🔄 Understanding Stateful Widgets
+
+A Stateful Widget:
+
+- Maintains internal state.
+- Updates dynamically during runtime.
+- Uses `setState()` to rebuild UI when data changes.
+- Is required for interactive components.
+
+### 🔹 In This Project
+
+The interactive section is implemented using a Stateful Widget.  
+It includes:
+
+- A counter that increments when a button is pressed.
+- A theme switch that toggles between Light and Dark mode.
+- Text that updates based on the current state.
+
+---
+
+## 🔄 How UI Updates Work
 
 Two state variables were used:
 
-- `int count` → stores the counter value
-- `bool isDark` → controls theme mode
+- `count` → stores the counter value  
+- `isDarkMode` → controls theme switching  
 
-When the button is pressed:
-- `setState()` increases the counter
-- Flutter rebuilds the `Text` widget displaying the count
+### 🟢 When the Button is Pressed
 
-When the switch is toggled:
-- `setState()` changes the theme
-- Flutter rebuilds the app with dark or light mode
+- The counter value increases.
+- `setState()` is triggered.
+- Flutter rebuilds only the widgets displaying the counter.
 
-Flutter does NOT redraw the entire app manually.  
+### 🌙 When the Theme Switch is Toggled
+
+- The theme mode changes.
+- `setState()` triggers a rebuild.
+- The app switches between Light and Dark mode.
+
+Flutter does not manually refresh the whole UI.  
 It efficiently rebuilds only the widgets affected by the state change.
+
+---
+
+## ⚡ How Flutter’s Reactive Model Works
+
+Flutter follows a reactive programming model:
+
+1. The UI is built from widgets.
+2. When state changes, `setState()` notifies Flutter.
+3. Flutter rebuilds the widget tree.
+4. Only affected widgets update.
+
+This approach makes development:
+
+- Cleaner  
+- Faster  
+- Less error-prone  
+- More scalable  
 
 ---
 
 ## 📸 Screenshots
 
 ### Initial State
-- Count = 0
-- Light Mode enabled
-![alt text](image.png)
+- Counter = 0  
+- Light Mode enabled  
+
+(Insert Screenshot Here)
+
+---
 
 ### After Interaction
-- Count incremented
-- Dark Mode enabled
+- Counter incremented  
+- Dark Mode enabled  
 
-![alt text](image-1.png)
+(Insert Screenshot Here)
 
 ---
 
 ## 🧠 Reflection
 
-The widget tree helps Flutter manage complex UIs by organizing every element in a structured hierarchy. Each widget acts like a building block, and parent widgets manage their children.
+### When Should You Prefer Stateless Widgets?
 
-Flutter’s reactive model is more efficient than manually updating views because:
+Stateless widgets should be used when UI does not depend on changing data.  
+They are simple, efficient, and make the app structure clean and predictable.
 
-- We only update the state.
-- Flutter automatically rebuilds affected widgets.
-- No manual UI refresh logic is required.
-- This makes development faster, cleaner, and less error-prone.
+### When Are Stateful Widgets Necessary?
 
-Through this sprint, I understood how Flutter internally manages UI updates and how powerful the `setState()` method is for dynamic interfaces.
+Stateful widgets are necessary when:
+
+- The UI changes during runtime.
+- User interaction modifies the interface.
+- Data needs to be updated dynamically.
+
+### How Do Stateful Widgets Make the UI Dynamic?
+
+Stateful widgets store internal data and use `setState()` to trigger UI rebuilds whenever that data changes. This allows the app to respond instantly to user interactions.
+
+### Why Is Understanding Widget Types Important?
+
+Understanding the difference between Stateless and Stateful widgets helps:
+
+- Improve performance
+- Avoid unnecessary rebuilds
+- Write cleaner code
+- Build scalable applications
+- Separate static and dynamic UI logic properly
 
 ---
+
+## 📎 Submission Details
+
+**Commit Message:**  
+feat: implemented stateless and stateful widgets demo app  
+
+**Pull Request Title:**  
+[Sprint-2] Stateless vs Stateful Widgets – TeamName  
+
+**PR Includes:**
+- Implementation summary  
+- Screenshots (before and after state change)  
+- Reflection  
+- Video explanation link  
+
+---
+
+🐾 PawTrust – Building strong Flutter foundations with Stateless and Stateful widgets.
