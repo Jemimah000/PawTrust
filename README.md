@@ -100,114 +100,66 @@ Brief summary:
 
 ## 📌 Project Overview
 
-This Sprint #2 submission focuses on understanding Flutter’s **Widget Tree** and its **Reactive UI Model**.
-
-In this implementation, we built a simple interactive demo inside PawTrust to demonstrate:
-
-- 🌳 How Flutter UI is structured using a widget tree
-- 🔄 How Flutter automatically rebuilds UI when state changes
-- ⚡ How `setState()` triggers efficient UI updates
-
-The goal of this sprint is to understand how Flutter builds, manages, and updates dynamic user interfaces.
+This demonstration shows how Hot Reload, Debug Console, and Flutter DevTools help improve development speed and debugging efficiency.
 
 ---
 
-## 🎯 Objective of This Sprint
+## ⚡ 1. Hot Reload Demonstration
 
-- Understand Flutter's widget hierarchy structure
-- Visualize how widgets are nested inside each other
-- Demonstrate Flutter’s reactive programming model
-- Show automatic UI updates using `setState()`
-- Document widget tree structure clearly
+### What I Did:
+- Modified text widget.
+- Changed color property.
+- Applied Hot Reload using `r`.
 
----
+### Observation:
+The UI updated instantly without restarting the app.
+The app state remained preserved.
 
-## 🚀 Features Implemented
-
-### 🌳 Widget Tree Demonstration
-- ✅ Root `MaterialApp`
-- ✅ `Scaffold` structure
-- ✅ `AppBar` with title
-- ✅ Centered layout using `Center`
-- ✅ Vertical arrangement using `Column`
-- ✅ Interactive widgets inside the column
-
-### 🔄 Reactive UI Demonstration
-- ✅ Counter that updates dynamically
-- ✅ Theme switcher (Light / Dark Mode)
-- ✅ UI rebuilds automatically using `setState()`
-- ✅ Only affected widgets update (efficient rendering)
+(Screenshot here)
 
 ---
 
-## 🌳 Widget Tree Structure
+## 🐛 2. Debug Console Usage
 
-Below is the widget hierarchy used in this demo:
+### What I Did:
+- Added a counter button.
+- Used `debugPrint()` inside `setState()`.
+- Observed logs in Debug Console.
 
-MaterialApp
-┗ Scaffold
-┣ AppBar
-┗ Body
-┗ Center
-┗ Column
-┣ Text (Count Display)
-┣ SizedBox
-┣ ElevatedButton (Increment)
-┣ SizedBox
-┣ Switch (Theme Toggle)
-┗ Text (Theme Label)
+### Observation:
+Console logs showed real-time button press events and count updates.
 
-
-This structure shows how every UI element in Flutter is a widget and how they are nested hierarchically.
+(Screenshot here)
 
 ---
 
-## 🔄 State Management Logic
+## 🛠 3. Flutter DevTools Exploration
 
-Two state variables were used:
+### Widget Inspector:
+Used it to inspect widget tree and highlight UI components.
 
-- `int count` → stores the counter value
-- `bool isDark` → controls theme mode
+(Screenshot here)
 
-When the button is pressed:
-- `setState()` increases the counter
-- Flutter rebuilds the `Text` widget displaying the count
+### Performance Tab:
+Observed frame rendering and UI performance metrics.
 
-When the switch is toggled:
-- `setState()` changes the theme
-- Flutter rebuilds the app with dark or light mode
-
-Flutter does NOT redraw the entire app manually.  
-It efficiently rebuilds only the widgets affected by the state change.
+(Screenshot here)
 
 ---
 
-## 📸 Screenshots
+## 💡 Reflection
 
-### Initial State
-- Count = 0
-- Light Mode enabled
-![alt text](image.png)
+### How does Hot Reload improve development speed?
+Hot Reload allows instant UI updates without restarting the app, saving time during development.
 
-### After Interaction
-- Count incremented
-- Dark Mode enabled
+### Why are debugging and profiling important?
+They help detect errors, track logic flow, and improve app performance.
 
-![alt text](image-1.png)
+### How can teams use these tools?
+Developers can quickly test features, debug issues, and optimize performance collaboratively.
 
 ---
 
-## 🧠 Reflection
+## 🚀 Conclusion
 
-The widget tree helps Flutter manage complex UIs by organizing every element in a structured hierarchy. Each widget acts like a building block, and parent widgets manage their children.
-
-Flutter’s reactive model is more efficient than manually updating views because:
-
-- We only update the state.
-- Flutter automatically rebuilds affected widgets.
-- No manual UI refresh logic is required.
-- This makes development faster, cleaner, and less error-prone.
-
-Through this sprint, I understood how Flutter internally manages UI updates and how powerful the `setState()` method is for dynamic interfaces.
-
----
+Hot Reload, Debug Console, and DevTools significantly improve Flutter development workflow by enabling faster iteration, efficient debugging, and real-time performance monitoring.

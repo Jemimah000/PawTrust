@@ -17,3 +17,21 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+// -----------------------
+// Stateless Widget
+// -----------------------
+class DemoHeader extends StatelessWidget {
+  const DemoHeader({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Text(
+      "Interactive Widget Tree Demo 🚀",
+      style: TextStyle(
+        fontSize: 26,
+        fontWeight: FontWeight.bold,
+      ),
+    );
+  }
+}
