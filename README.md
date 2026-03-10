@@ -149,14 +149,15 @@ Observed frame rendering and UI performance metrics.
 
 ## 💡 Reflection
 
-### How does Hot Reload improve development speed?
-Hot Reload allows instant UI updates without restarting the app, saving time during development.
+### Initial State
+- Count = 0
+- Light Mode enabled
+![alt text](<Screenshot (872).png>)
 
 ### Why are debugging and profiling important?
 They help detect errors, track logic flow, and improve app performance.
 
-### How can teams use these tools?
-Developers can quickly test features, debug issues, and optimize performance collaboratively.
+![alt text](<Screenshot (874).png>)
 
 ---
 
