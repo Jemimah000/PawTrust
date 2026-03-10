@@ -187,13 +187,13 @@ It efficiently rebuilds only the widgets affected by the state change.
 ### Initial State
 - Count = 0
 - Light Mode enabled
-![alt text](image.png)
+![alt text](<Screenshot (872).png>)
 
 ### After Interaction
 - Count incremented
 - Dark Mode enabled
 
-![alt text](image-1.png)
+![alt text](<Screenshot (874).png>)
 
 ---
 
