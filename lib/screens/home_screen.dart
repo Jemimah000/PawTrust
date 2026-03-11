@@ -17,7 +17,10 @@ class HomeScreen extends StatelessWidget {
             icon: Icon(Icons.logout),
             onPressed: () async {
               await AuthService().logout();
-              Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => LoginScreen()));
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (_) => LoginScreen()),
+              );
             },
           )
         ],
@@ -26,4 +29,3 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
-
